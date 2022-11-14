@@ -1,20 +1,29 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { View, FlatList, StyleSheet, Button } from 'react-native';
+import ListPage from './components/list/ListPage';
+import { useContext, useState, createContext } from 'react';
+import { DATA } from './data';
 
-export default function App() {
+/*
+  Preguntar:
+  Item importa DATA y hace push de elementos.
+  Es necesario hacer un useState de DATA que se encuentra
+  en App. 
+
+*/
+
+
+const App = () => {
+  const [data, setData] = useState(DATA);
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View>
+      <ListPage/>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
 });
+
+export default App;
